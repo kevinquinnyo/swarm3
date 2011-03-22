@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110322000425) do
+ActiveRecord::Schema.define(:version => 20110322130446) do
 
   create_table "bids", :force => true do |t|
     t.float    "price"
@@ -22,16 +22,13 @@ ActiveRecord::Schema.define(:version => 20110322000425) do
 
   create_table "swarm_requests", :force => true do |t|
     t.string   "item"
-    t.string   "street_address"
-    t.string   "city"
-    t.string   "State"
-    t.integer  "zip"
     t.float    "lat"
     t.float    "lng"
     t.integer  "user_id"
     t.string   "delivery_instructions"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
   end
 
   create_table "users", :force => true do |t|

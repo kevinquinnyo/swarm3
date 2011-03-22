@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SwarmRequestsControllerTest < ActionController::TestCase
   setup do
-    @swarm_request = swarm_requests(:one)
+    @swarm_request = swarm_requests(:cheezeburger)
     sign_in users(:kevin)
   end
 

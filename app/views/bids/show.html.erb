@@ -16,5 +16,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_bid_path(@bid) %> |
-<%= link_to 'Back', bids_path %>
+<%= link_to 'Edit', edit_swarm_request_bid_path(:id => @bid.to_param, :swarm_request_id => @swarm_request.to_param) %> |
+<%= link_to 'Back', swarm_request_bids_path(:swarm_request_id => @swarm_request.to_param) %>

@@ -16,20 +16,9 @@
     <%= f.text_field :item %>
   </div>
   <div class="field">
-    <%= f.label :street_address %><br />
-    <%= f.text_field :street_address %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :State %><br />
-    <%= f.text_field :State %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
+    <%= f.label :address, "Address of where to deliver (be as specific as you want)" %><br />
+    <%= f.text_field :address %><br />
+    <span>ex: Atlanta, GA or 123 Main St, Atlanta, GA</span>
   </div>
   <div class="field">
     <%= f.label :delivery_instructions, "Delivery Instructions (gate code, call when you arrive, etc.)" %><br />

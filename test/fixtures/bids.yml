@@ -1,11 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  price: 1.5
-  user_id: 1
-  swarm_request_id: 1
-
-two:
-  price: 1.5
-  user_id: 1
-  swarm_request_id: 1
+bid_one:
+  price: 10.00
+  user: kevin
+  swarm_request: cheezeburger

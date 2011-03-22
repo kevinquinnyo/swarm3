@@ -1,23 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  item: MyString
-  street_address: MyString
-  city: MyString
-  State: MyString
-  zip: 1
-  lat: 1.5
-  lng: 1.5
+cheezeburger:
+  item: "a cheeeeeezeburger"
+  address: "123 Main St, Atlanta, GA"
+  lat: 33.77
+  lng: -84.36
   user_id: 1
-  delivery_instructions: MyString
-
-two:
-  item: MyString
-  street_address: MyString
-  city: MyString
-  State: MyString
-  zip: 1
-  lat: 1.5
-  lng: 1.5
-  user_id: 1
-  delivery_instructions: MyString
+  delivery_instructions: "go round back dood"
