@@ -1,0 +1,27 @@
+<h1>Listing bids</h1>
+
+<table>
+  <tr>
+    <th>Price</th>
+    <th>User</th>
+    <th>Swarm request</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bids.each do |bid| %>
+  <tr>
+    <td><%= bid.price %></td>
+    <td><%= bid.user_id %></td>
+    <td><%= bid.swarm_request_id %></td>
+    <td><%= link_to 'Show', bid %></td>
+    <td><%= link_to 'Edit', edit_bid_path(bid) %></td>
+    <td><%= link_to 'Destroy', bid, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bid', new_bid_path %>

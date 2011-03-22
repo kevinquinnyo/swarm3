@@ -1,0 +1,55 @@
+<h1>Swarm Requests</h1>
+
+
+<script type="text/javascript">
+  function initialize() {
+    var latlng = new google.maps.LatLng(33.77, -84.36);
+    var myOptions = {
+      zoom: 12,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+      //put location markers on map
+      <% @swarm_requests.each do |swarm_request| %>
+        var request = new google.maps.LatLng(<%= swarm_request.lat %>, <%= swarm_request.lng %>);
+        var marker = new google.maps.Marker({
+        position: request, 
+        map: map, 
+        title: "User: <%= current_user.email %> | Item Requested:<%= swarm_request.item %> | Address: <%= swarm_request.street_address %>"
+      
+        });     
+     
+        var contentString = 'User: <%= current_user.email  %></br>'+
+                          'Item Requested:<%= swarm_request.item %></br>'+
+                          'Address: <%= swarm_request.street_address %></br>'
+                          
+                          
+      <% end %>
+
+      var infowindow = new google.maps.InfoWindow({
+      content: contentString
+      });
+
+      
+      var infowindow = new google.maps.InfoWindow({
+      content: contentString
+      });
+      
+      google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+      });
+
+      
+      
+  }
+
+
+</script>
+<body onload="initialize()">
+  <div id="map_canvas" style="width:500px; height:500px"></div>
+
+
+

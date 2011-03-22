@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script type="text/javascript"
+        src="http://maps.google.com/maps/api/js?sensor=false&region=US;key=ABQIAAAAMC7dq9bWcPaJdGxWPDaq1BTJQa0g3IQ9GZqIMmInSLzwtGDKaBQMJsqyuhJOmM2r4r_WiYnAjVdF8g">
+    </script>
+
+    <title><%= title %></title>
+   <!-- <%= stylesheet_link_tag :all %> -->
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+    <%= render 'layouts/stylesheets' %>
+  </head>
+    <body>
+      <div class = "container">
+        <%= render 'layouts/header' %>
+        <section class = "round">
+          
+          <%= yield %>
+
+        </section>
+      </div>
+    </body>
+</html>

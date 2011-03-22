@@ -1,0 +1,18 @@
+<header>
+  <%= link_to logo, root_path %>
+
+<nav class="round">
+  <ul>
+
+    <% if user_signed_in? %>
+      <li>Signed in as <%= current_user.email %>.  Not You?  <%= link_to "Sign Out", destroy_user_session_path %></li>
+      <li><%= link_to "Deliver Something!", deliver_path %></li>
+      <li><%= link_to "Get Something!", get_path %></li>
+    <% else %>
+      <li><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %></li>
+    <% end %>
+  </ul>
+</nav>
+
+
+</header>

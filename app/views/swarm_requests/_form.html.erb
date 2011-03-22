@@ -1,0 +1,41 @@
+<%= form_for(@swarm_request) do |f| %>
+  <% if @swarm_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@swarm_request.errors.count, "error") %> prohibited this swarm_request from being saved:</h2>
+
+      <ul>
+      <% @swarm_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :item, "What do you need? (be specific)"%><br />
+    <%= f.text_field :item %>
+  </div>
+  <div class="field">
+    <%= f.label :street_address %><br />
+    <%= f.text_field :street_address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :State %><br />
+    <%= f.text_field :State %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_instructions, "Delivery Instructions (gate code, call when you arrive, etc.)" %><br />
+    <%= f.text_field :delivery_instructions %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Place Request Now!" %>
+  </div>
+<% end %>

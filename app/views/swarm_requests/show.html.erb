@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Item:</b>
+  <%= @swarm_request.item %>
+</p>
+
+<p>
+  <b>Street address:</b>
+  <%= @swarm_request.street_address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @swarm_request.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @swarm_request.State %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @swarm_request.zip %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @swarm_request.lat %>
+</p>
+
+<p>
+  <b>Lng:</b>
+  <%= @swarm_request.lng %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @swarm_request.user_id %>
+</p>
+
+<p>
+  <b>Delivery instructions:</b>
+  <%= @swarm_request.delivery_instructions %>
+</p>
+
+
+<%= link_to 'Edit', edit_swarm_request_path(@swarm_request) %> |
+<%= link_to 'Back', swarm_requests_path %>
