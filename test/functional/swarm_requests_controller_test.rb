@@ -3,6 +3,7 @@ require 'test_helper'
 class SwarmRequestsControllerTest < ActionController::TestCase
   setup do
     @swarm_request = swarm_requests(:one)
+    sign_in users(:kevin)
   end
 
   test "should get index" do

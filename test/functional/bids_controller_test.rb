@@ -3,6 +3,7 @@ require 'test_helper'
 class BidsControllerTest < ActionController::TestCase
   setup do
     @bid = bids(:one)
+    sign_in users(:kevin)
   end
 
   test "should get index" do
