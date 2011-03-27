@@ -1,0 +1,74 @@
+<% @body_onload = "initialize();" %>
+
+
+<script type="text/javascript">
+  function initialize() {
+    // default to Atlanta
+
+    //custom styling variables
+ var stylez = [
+    {
+      featureType: "road.local",
+      elementType: "geometry",
+      stylers: [
+        { hue: "#FFFFFF" },
+        { saturation:100 }
+      ]
+    },
+    {
+      featureType: "landscape",
+      elementType: "geometry",
+      stylers: [
+        { lightness: -100 }
+      ]
+    }
+  ];
+
+    var latlng = new google.maps.LatLng(33.77, -84.36);
+    var myOptions = {
+      zoom: 12,
+      center: latlng,
+      mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'hiphop']
+      }
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    var styledMapOptions = {
+      name: "Swarm"
+    }
+
+    var jayzMapType = new google.maps.StyledMapType(
+      stylez, styledMapOptions);
+
+  map.mapTypes.set('hiphop', jayzMapType);
+  map.setMapTypeId('hiphop');
+    
+    //put location markers on map
+    <% @swarm_requests.each do |swarm_request| %>
+      // don't show the marker if we don't have a lat lng
+      <% if swarm_request.geocoded? %>
+        var request_latlng = new google.maps.LatLng(<%= swarm_request.lat %>, <%= swarm_request.lng %>);
+        var marker = new google.maps.Marker({ 
+          position: request_latlng, 
+          map: map, 
+          title: "User: <%= swarm_request.user.email %> | Item Requested: <%= swarm_request.item %> | Address: <%= swarm_request.address %>"
+        });
+        
+        var contentString = 'User: <%= swarm_request.user.email  %><br />'+
+                            'Item Requested:<%= swarm_request.item %><br />'+
+                            'Address: <%= swarm_request.address %><br />'+
+                            '<%= link_to "Bid Now!", new_swarm_request_bid_path(:swarm_request_id => swarm_request.id) %>'
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
+      <% end %>
+    <% end %>
+  }
+
+
+</script>
+<div id="map_canvas" class="mapitself"></div>

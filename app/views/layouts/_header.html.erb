@@ -1,18 +1,29 @@
 <header>
-  <%= link_to logo, root_path %>
-
-<nav class="round">
-  <ul>
-
-    <% if user_signed_in? %>
-      <li>Signed in as <%= current_user.email %>.  Not You?  <%= link_to "Sign Out", destroy_user_session_path %></li>
-      <li><%= link_to "Deliver Something!", deliver_path %></li>
-      <li><%= link_to "Get Something!", get_path %></li>
-    <% else %>
-      <li><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %></li>
-    <% end %>
-  </ul>
-</nav>
-
-
+  <div id="header" class="grid_12">
+    <div id ="logo" class="grid_4 alpha">
+      <%= link_to logo, root_path %>
+    </div>
+    <div id ="blank space" class="grid_4">
+      
+    </div>
+    <div id ="login" class="grid_4 right nav">
+      <% if user_signed_in? %>
+        <li>Signed in as <%= current_user.email %>.  Not You?  <%= link_to "Sign Out", destroy_user_session_path %></li>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+    </div>
+    <div id="heading" class="grid_12 alpha omega roundheading center">
+      
+      <div class="grid_4 push_2 textcenter deliverbutton round">
+        <div class = "padding">
+         <%= link_to "Deliver Something!", deliver_path %>
+        </div>
+      </div>
+      <div class="grid_4 push_2 textcenter getbutton round">
+        <div class = "padding">
+         <%= link_to "  Get Something!", get_path %>
+        </div>
+      </div>
+    </div> 
 </header>
