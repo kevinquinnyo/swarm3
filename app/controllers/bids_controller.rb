@@ -52,6 +52,7 @@ class BidsController < ApplicationController
 
     respond_to do |format|
       if @bid.save
+        UserMailer.bid_notification(@swarm_request).deliver
         format.html { redirect_to(swarm_request_bid_url(:id => @bid.to_param, :swarm_request_id => @swarm_request.to_param), :notice => 'Bid was successfully created.') }
         format.xml  { render :xml => @bid, :status => :created, :location => @bid }
       else
