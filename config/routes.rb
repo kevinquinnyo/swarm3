@@ -3,13 +3,16 @@ Swarm3::Application.routes.draw do
   devise_for :users
   
   resources :swarm_requests do 
+    put 'accept', :on => :member
     resources :bids
+
   end
   
   root :to => "pages#home"
   
   match '/deliver' => 'swarm_requests#index'
   match '/get'     => 'swarm_requests#new'
+  match '/review'  => 'bids#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

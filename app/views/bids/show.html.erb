@@ -1,19 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Swarm request:</b>
+  <%= @bid.swarm_request.item %>
+</p>
+
+<p>
+  <b>Requested by:</b>
+  <%= @bid.swarm_request.user.username %>
+</p>
+
+<p>
+  <b>Delivery bid proposed by:</b>
+  <%= @bid.user.username %>
+</p>
+
+<p>
   <b>Price:</b>
   <%= @bid.price %>
 </p>
 
-<p>
-  <b>User:</b>
-  <%= @bid.user_id %>
-</p>
+<p>If you wish to accept this bid, click here (add functionality)</p>
 
-<p>
-  <b>Swarm request:</b>
-  <%= @bid.swarm_request_id %>
-</p>
 
 
 <%= link_to 'Edit', edit_swarm_request_bid_path(:id => @bid.to_param, :swarm_request_id => @swarm_request.to_param) %> |

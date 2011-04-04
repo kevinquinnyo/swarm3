@@ -1,3 +1,4 @@
+
 <% @body_onload = "initialize();" %>
 
 
@@ -48,9 +49,10 @@
     infowindow = new google.maps.InfoWindow();
     //put location markers on map
     <% @swarm_requests.each do |swarm_request| %>
-      // don't show the marker if we don't have a lat lng
+      // don't show the marker if we don't have a lat lng or if a bid has already been accepted
       <% if swarm_request.geocoded? %>
-   
+         
+        
         var request_latlng = new google.maps.LatLng(<%= swarm_request.lat %>, <%= swarm_request.lng %>);
         var marker = new google.maps.Marker({ 
           position: request_latlng, 
@@ -71,7 +73,7 @@
         
         <% end %>
     <% end %>  
-        
+      
        function addContentToWindow(marker, contentString){
          google.maps.event.addListener(marker, 'click', function() {
          infowindow.setContent(contentString);
@@ -79,7 +81,7 @@
          });
        }
   }
-
+ 
 
 </script>
 <div id="map_canvas" class="mapitself"></div>

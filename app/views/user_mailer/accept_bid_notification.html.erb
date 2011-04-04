@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <%= image_tag attachments['logo.png'].url %>
+    <h1> </h1>
+    <p>Congratulations!  <%= @swarm_requester.user.username %> has accepted your bid offer!  They
+       are expecting to see you soon.  Here are the details of the request: </br></p>
+    <p>Address: <%= @swarm_requester.address %>
+    <p>Requested Item: <%= @swarm_requester.item %></br></p>
+    <p>Delivery Price: </br></p>
+    <p><%= link_to "Click here", swarm_request_bids_url(@swarm_requester), :host => "localhost:3000", :only_path => false %> to review current bids and accept or decline the offers. </p>
+    <p>Kind Regards,</br></br></br></p>
+    <p>Team Swarm</p>
+      
+    
+  </body>
+</html>
+

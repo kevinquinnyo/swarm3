@@ -52,7 +52,7 @@ class BidsController < ApplicationController
 
     respond_to do |format|
       if @bid.save
-        UserMailer.bid_notification(@swarm_request).deliver
+        UserMailer.bid_notification(@bid).deliver
         format.html { redirect_to(swarm_request_bid_url(:id => @bid.to_param, :swarm_request_id => @swarm_request.to_param), :notice => 'Bid was successfully created.') }
         format.xml  { render :xml => @bid, :status => :created, :location => @bid }
       else
@@ -89,11 +89,17 @@ class BidsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  
+    
   
   private
   
   def set_swarm_request
     @swarm_request = SwarmRequest.find(params[:swarm_request_id])
   end
+
+
   
 end

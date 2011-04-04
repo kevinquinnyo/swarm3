@@ -2,8 +2,8 @@ class SwarmRequestsController < ApplicationController
   # GET /swarm_requests
   # GET /swarm_requests.xml
   def index
-    @swarm_requests = SwarmRequest.all
-
+    @swarm_requests = SwarmRequest.open.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @swarm_requests }
@@ -81,4 +81,23 @@ class SwarmRequestsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+# Accepts a bid for a swarm request
+  def accept
+    
+    @swarm_request = SwarmRequest.find(params[:swarm_request_id])
+    @swarm_request.update_attributes(:accepted => true)
+    UserMailer.accept_bid_notification(@swarm_request).deliver
+    # also update the bid with any details here?
+    respond_to do |format|
+        format.html { redirect_to(@swarm_request, :notice => 'Bid Accepted.') }
+        format.xml  { head :ok }
+    end
+
+  end
+  
+  
+  
+    
+
 end

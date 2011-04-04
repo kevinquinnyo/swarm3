@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   
   
   def home
-    @swarm_requests = SwarmRequest.all
+    @swarm_requests = SwarmRequest.open.all
 
     respond_to do |format|
     format.html # index.html.erb
