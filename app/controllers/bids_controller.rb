@@ -1,7 +1,7 @@
 class BidsController < ApplicationController
   
   before_filter :authenticate_user!
-  before_filter :require_admin!, :except => [:index, :show, :new, :create]
+  before_filter :require_admin!, :except => [:index, :show, :new, :create, :accept]
   
   # Bids are a nested resource of swarm_requests, so they require a 
   # swarm_request.
