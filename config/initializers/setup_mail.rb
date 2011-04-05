@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
 :port                   => 587,
 :domain                 => "gmail.com",
 :user_name              => "swarmdelivery@gmail.com",
-:password               => "kqtw1716K",
+:password               => "kqtw1716",
 :authentication         => "plain",
 :enable_starttls_auto   => true
 }
