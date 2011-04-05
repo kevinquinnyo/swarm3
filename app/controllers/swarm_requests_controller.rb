@@ -1,4 +1,6 @@
 class SwarmRequestsController < ApplicationController
+  
+  before_filter :require_admin!, :except => [:index, :show, :new, :create]
   # GET /swarm_requests
   # GET /swarm_requests.xml
   def index
