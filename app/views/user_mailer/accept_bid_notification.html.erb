@@ -5,13 +5,13 @@
   </head>
   <body>
     <%= image_tag attachments['logo.png'].url %>
-    <h1> </h1>
-    <p>Congratulations!  <%= @swarm_requester.user.username %> has accepted your bid offer!  They
-       are expecting to see you soon.  Here are the details of the request: </br></p>
-    <p>Address: <%= @swarm_requester.address %>
+    <h1><%= @bidder.username %>,</h1>
+    <p><%= @swarm_requester.user.username %> has accepted your delivery bid!  They are expecting to
+       to see you soon!  Here is the address and information on the delivery request:</br></p>
+    <p>Address: **fix this**</br></p>
     <p>Requested Item: <%= @swarm_requester.item %></br></p>
-    <p>Delivery Price: </br></p>
-    <p><%= link_to "Click here", swarm_request_bids_url(@swarm_requester), :host => "localhost:3000", :only_path => false %> to review current bids and accept or decline the offers. </p>
+    <p>Delivery Price: $<%= @bid.price %>0</br></p>
+    <p><%= link_to "Click here", root_path, :host => "localhost:3000", :only_path => false %> to return to Swarm. </p>
     <p>Kind Regards,</br></br></br></p>
     <p>Team Swarm</p>
       

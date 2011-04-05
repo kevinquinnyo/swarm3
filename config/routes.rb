@@ -3,8 +3,9 @@ Swarm3::Application.routes.draw do
   devise_for :users
   
   resources :swarm_requests do 
-    put 'accept', :on => :member
-    resources :bids
+    resources :bids do
+      put 'accept', :on => :member
+    end
 
   end
   
