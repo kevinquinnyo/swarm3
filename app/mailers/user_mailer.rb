@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "kevin@elfurioso.com"
+  default :from => "swarmdelivery@gmail.com"
   
 
   def bid_notification(bid)
