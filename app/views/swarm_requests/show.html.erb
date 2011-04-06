@@ -11,19 +11,10 @@
   <%= @swarm_request.address %>
 </p>
 
-<p>
-  <b>Lat:</b>
-  <%= @swarm_request.lat %>
-</p>
 
 <p>
-  <b>Lng:</b>
-  <%= @swarm_request.lng %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @swarm_request.user_id %>
+  <b>Requested By:</b>
+  <%= @swarm_request.user.username %>
 </p>
 
 <p>

@@ -1,4 +1,4 @@
-class RemoveAdmins < ActiveRecord::Migration
+class Blah < ActiveRecord::Migration
   def self.up
     #nothing
   end
