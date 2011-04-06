@@ -7,4 +7,5 @@ module AppConstants
     "ABQIAAAA3o0gpoxhBa8wt07axEnPEhSFtz6H3hWtsjLlk5R7ntmycOL6mhTPErQqRhAO8dr_JO8U3PVJSClDqg"
   end
   
+# key swarm-beta.heroku.com:  ABQIAAAA3o0gpoxhBa8wt07axEnPEhSFtz6H3hWtsjLlk5R7ntmycOL6mhTPErQqRhAO8dr_JO8U3PVJSClDqg
 end

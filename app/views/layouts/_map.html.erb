@@ -4,7 +4,7 @@
 
 <script type="text/javascript">
   function initialize() {
-    // default to Atlanta
+   
 
     //custom styling variables
  var stylez = [
@@ -24,8 +24,8 @@
       ]
     }
   ];
-
-    var latlng = new google.maps.LatLng(33.77, -84.36);
+      //make this default to ip based location
+    var latlng = new google.maps.LatLng(<%= @current_location.lat %>, <%= @current_location.lng %>);
     var myOptions = {
       zoom: 12,
       center: latlng,
