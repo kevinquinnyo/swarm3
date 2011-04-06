@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.request_uri
   end
   
-end
+
 
   def require_admin!
     unless current_user.try :is_admin?
