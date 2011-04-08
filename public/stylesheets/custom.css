@@ -24,6 +24,7 @@ a.learnmore:hover { color: white; background-color: black; font-size: 14px }
 
 .redlarge {
   font-size: 40px;
+  line-height: 90%;
   font-weight: bold;
   font-style: italic;
   color: #FF0022;
