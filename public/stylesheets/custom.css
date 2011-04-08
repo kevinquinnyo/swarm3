@@ -17,7 +17,10 @@ a.learnmore:link { color: white; background-color: #333; font-size: 14px }
 a.learnmore:visited { color: white; background-color: #333; font-size: 14px}
 a.learnmore:hover { color: white; background-color: black; font-size: 14px }
 
-
+.midsizetext {
+  font-size: 22px;
+  font-weight: bold;
+}
  
 }
 
