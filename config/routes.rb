@@ -11,6 +11,7 @@ Swarm3::Application.routes.draw do
   
   root :to => "pages#home"
   
+  match '/about'   => 'pages#about'
   match '/deliver' => 'swarm_requests#index'
   match '/get'     => 'swarm_requests#new'
   match '/review'  => 'bids#show'

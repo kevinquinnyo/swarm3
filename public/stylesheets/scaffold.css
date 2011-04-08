@@ -14,9 +14,11 @@ pre {
 }
 
 
-a { font-size: 28px; color: #1A1A1A; text-decoration: none; }
+a { font-size: 18px; color: #1A1A1A; text-decoration: none; }
 a:visited { color: #333333 }
 a:hover { color: #FBFF69; }
+
+
 
 div.field, div.actions {
   margin-bottom: 5px;

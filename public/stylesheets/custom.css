@@ -12,23 +12,70 @@
   
 }
 
+
+a.learnmore:link { color: white; background-color: #333; font-size: 14px }
+a.learnmore:visited { color: white; background-color: #333; font-size: 14px}
+a.learnmore:hover { color: white; background-color: black; font-size: 14px }
+
+
+ 
+}
+
 .roundcontent {
   margin-top:            10px;
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
-  height:                470px;
+
 }
 
-.roundmap {
-  margin-top:            10px;
-  -moz-border-radius:    5px;
-  -webkit-border-radius: 5px;
-  height:                470px;
+.maparea {
+  border-top-style:      none;
+  border-bottom-style:      none;
+  border-left-style:      solid 1px #333;
+  border-right-style:      solid 1px #333;
+  
+
 }
+
+.rounddashed {
+ 
+  -moz-border-radius:     5px;
+  -webkit-border-radius:  5px;
+  border-style:           dashed;
+  border-width:           1px;
+  border-color:           #FF3333
+  height:                 220px;
+}
+
+.roundsmallgreytop {
+  margin-top: -10px;
+  background-color:       #333;
+  color: white;
+  -moz-border-radius:     5px;
+  -webkit-border-radius:  5px;
+}
+
+.roundsmallgreybot {
+  
+  background-color:       #333;
+  color: white;
+  -moz-border-radius:     5px;
+  -webkit-border-radius:  5px;
+
+
+}
+
+.roundsmallblue {
+  background-color:       #99333F;
+  -moz-border-radius:     5px;
+  -webkit-border-radius:  5px;
+  height:                 220px;
+}
+
 
 .mapitself {
-  width:                 400px;
-  height:                400px;
+  width:                 310px;
+  height:                310px;
   margin:                auto;
 }
 
@@ -37,42 +84,52 @@
   font-size: 16px;
 }
 
+.blurbsmall {
+  font-size: 12px;
+  margin-top:      10px;
+  margin-bottom:   10px;
+  margin-left:     10px;
+  margin-right:    10px;
+}
+
+.bigtext {
+  font-size:  82px;
+  font-weight: bold;
+  
+
+}
+
 .textcenter {
   text-align: center;
 }
 
 .right {
-  float:      right;
+  
   text-align: right;
 }
+
+.left {
+  float:      left;
+  text-align: left;
+}
+
 
 .center {
   margin-top:    auto;
   margin-bottom: auto;
 }
 
-.getbutton {
+.button {
   margin: 0px 10px;
-  background-color: yellow;
-  font-variant: small-caps;
   font-family: helvetica;
   font-weight: bold;
-  height:      40px;
-  border:                solid 3px #1A1A1A;
-  
-}
+  height:      30px;
+  border:      dotted 1px #333;
 
-.deliverbutton {
-  margin: 0px 0px 10px;
-  background-color: yellow;
-  font-variant: small-caps;
-  font-family: helvetica;
-  font-weight: bold;
-  height:      40px;
-  border:                solid 3px #1A1A1A;
   
 }
 
 .padding {
   padding: 3%;
+
 

@@ -13,18 +13,22 @@
       elementType: "geometry",
       stylers: [
         { hue: "#FFFFFF" },
-        { saturation:100 }
+        { saturation:100 },
+        { lightness: 100}
       ]
     },
     {
       featureType: "landscape",
       elementType: "geometry",
       stylers: [
-        { lightness: -100 }
+        
+        {lightness: -80 },
+        {saturation:-100},
+        
       ]
     }
   ];
-      //make this default to ip based location
+      //make this default to ip based location in production
     var latlng = new google.maps.LatLng(<%= @current_location.lat %>, <%= @current_location.lng %>);
     var myOptions = {
       zoom: 12,
