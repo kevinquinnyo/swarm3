@@ -12,6 +12,10 @@
   
 }
 
+.infobubble {
+  font-size: 10px;
+}
+
 
 a.learnmore:link { color: white; background-color: #333; font-size: 14px }
 a.learnmore:visited { color: white; background-color: #333; font-size: 14px}

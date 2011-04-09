@@ -18,7 +18,12 @@
   <div class="field">
     <%= f.label :address, "Address of where to deliver (be as specific as you want)" %><br />
     <%= f.text_field :address %><br />
-    <span>ex: Atlanta, GA or 123 Main St, Atlanta, GA</span>
+    <span style="font-size: 10px">ie: Atlanta, GA or 123 Main St, Atlanta, GA</span>
+  </div>
+  <div class="field">
+    <%= f.label :suggested_price, "How much are you willing to pay?"%><br />
+    <%= f.text_field :suggested_price %></br>
+    <span style="font-size: 10px">Consider the cost of the item plus a reasonable delivery fee</span>
   </div>
   <div class="field">
     <%= f.label :delivery_instructions, "Delivery Instructions (gate code, call when you arrive, etc.)" %><br />

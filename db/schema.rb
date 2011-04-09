@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110405204409) do
+ActiveRecord::Schema.define(:version => 20110408151346) do
 
   create_table "bids", :force => true do |t|
     t.float    "price"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110405204409) do
     t.datetime "updated_at"
     t.string   "address"
     t.boolean  "auction_closed",        :default => false
+    t.float    "suggested_price"
   end
 
   create_table "users", :force => true do |t|

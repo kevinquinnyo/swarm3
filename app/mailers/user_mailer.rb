@@ -22,6 +22,16 @@ class UserMailer < ActionMailer::Base
     
     mail(:to => bid.user.email, :subject => "Swarm Delivery Bid Accepted")
   end
+
+  def accept_price_now(swarm_request, user)
+    @swarm_requester = swarm_request
+    @user = user
+    
+    attachments.inline['logo.png'] = File.read('public/images/logo.png')
+    
+    mail(:to => user.email, :subject => "Swarm Delivery Bid Accepted")
+  end
+  
 end
 
 

@@ -1,6 +1,7 @@
 class SwarmRequestsController < ApplicationController
   
-  before_filter :require_admin!, :except => [:index, :show, :new, :create]
+  before_filter :authenticate_user!
+  before_filter :require_admin!, :except => [:index, :show, :new, :create, :accept_requester_price_now]
   # GET /swarm_requests
   # GET /swarm_requests.xml
   def index
@@ -15,7 +16,7 @@ class SwarmRequestsController < ApplicationController
   # GET /swarm_requests/1
   # GET /swarm_requests/1.xml
   def show
-    @swarm_request = SwarmRequest.find(params[:id])
+    @swarm_request = SwarmRequest.open.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -84,7 +85,17 @@ class SwarmRequestsController < ApplicationController
     end
   end
 
-
+  def accept_requester_price_now
+    @swarm_request = SwarmRequest.open.find(params[:id])
+    @swarm_request.update_attributes(:auction_closed => true)
+    
+  
+    UserMailer.accept_price_now(@swarm_request, current_user).deliver
+    respond_to do |format|
+        format.html { redirect_to(@swarm_request, :notice => 'Success. You may now deliver the items.  An email was sent with a summary of the details.') }
+        format.xml  { head :ok }
+    end
+  end
   
   
   

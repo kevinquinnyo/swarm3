@@ -2,7 +2,7 @@ class BidsController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :require_admin!, :except => [:index, :show, :new, :create, :accept]
-  
+  before_filter :authorize_as_owner, :only => :accept
   # Bids are a nested resource of swarm_requests, so they require a 
   # swarm_request.
   before_filter :set_swarm_request
@@ -107,8 +107,7 @@ class BidsController < ApplicationController
 
   end
 
-  
-    
+
   
   private
   
@@ -116,6 +115,12 @@ class BidsController < ApplicationController
     @swarm_request = SwarmRequest.find(params[:swarm_request_id])
   end
 
+  def authorize_as_owner
+    @swarm_request = SwarmRequest.find(params[:swarm_request_id])
+    unless current_user.id == @swarm_request.user_id
+      redirect_to root_path, :alert => "Access Denied."
+    end
+  end
 
   
 end
