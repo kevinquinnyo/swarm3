@@ -1,6 +1,8 @@
 Swarm3::Application.routes.draw do
   
   devise_for :users
+
+  resources :users, :only => [:index, :show]
   
   resources :swarm_requests do
     put 'accept_requester_price_now', :on => :member

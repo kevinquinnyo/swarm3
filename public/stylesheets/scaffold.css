@@ -14,7 +14,7 @@ pre {
 }
 
 
-a { font-size: 18px; color: #1A1A1A; text-decoration: none; }
+a { font-size: 14px; color: #1A1A1A; font-weight: bold; text-decoration: none; }
 a:visited { color: #333333 }
 a:hover { color: #FBFF69; }
 
