@@ -1,0 +1,14 @@
+<%= form_for("user", :url => user_session_path) do |f| %>
+  <div class="loginfield">
+    <%= f.label :username, "Username: " %>
+    <%= f.text_field :username, :size => 12 %>
+  </div>
+  <div class="loginfield">
+    <%= f.label :password, "Password: " %>
+    <%= f.password_field :password, :size => 12 %>
+  </div>
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %>
+  <%= f.submit 'Sign in' %>
+  <%= link_to "Forgot your password?", new_password_path('user') %>
+<% end %>

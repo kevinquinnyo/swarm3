@@ -1,1 +1,8 @@
-<%= render 'layouts/map' %>
+<% content_for :left_div do %>
+  <p> insert something here, maybe show the swarm requests as a nice list/feed with the offer prices? </p>
+<% end %>
+
+<% content_for :right_div do %>
+  <%= render 'layouts/map' %>
+  <p class="midsizetext textcenter"> Current Requests </p>
+<% end %>

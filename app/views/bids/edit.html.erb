@@ -1,6 +1,8 @@
-<h1>Editing bid</h1>
+<% content_for :left_div do %>
+  <h1>Editing bid</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', swarm_request_bid_path(:id => @bid.to_param, :swarm_request_id => @swarm_request.to_param) %> |
-<%= link_to 'Back', swarm_request_bids_path(:swarm_request_id => @swarm_request.to_param) %>
+  <%= link_to 'Show', swarm_request_bid_path(:id => @bid.to_param, :swarm_request_id => @swarm_request.to_param) %> |
+  <%= link_to 'Back', swarm_request_bids_path(:swarm_request_id => @swarm_request.to_param) %>
+<% end %>

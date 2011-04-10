@@ -7,9 +7,11 @@ gem 'rails', '3.0.4'
 
 # gem 'mysql2'
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'devise'
+gem 'devise', '1.1.8'
 gem 'geokit-rails3'
 
+
+gem 'ajaxful_rating', '3.0.0.beta2', :group => :development
 # Use unicorn as the web server
 # gem 'unicorn'
 

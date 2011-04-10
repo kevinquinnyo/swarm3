@@ -1,28 +1,30 @@
-<h1>Listing Users</h1>
+<% content_for :left_div do %>
+  <h1>Listing Users</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Something Else</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Something Else</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.username %></td>
-    <td></td>
-    <td></td>
-    
-    <td><%= link_to 'Show', user %></td>
-    
-    
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td></td>
+      <td></td>
+      
+      <td><%= link_to 'Show', user %></td>
+      
+      
 
-  </tr>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
 <% end %>
-</table>
-
-<br />
 
 

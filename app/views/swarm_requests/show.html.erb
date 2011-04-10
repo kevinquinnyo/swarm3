@@ -1,32 +1,34 @@
-<p id="notice"><%= notice %></p>
+<% content_for :left_div do %>
+  <p id="notice"><%= notice %></p>
 
 
-<p>
-  <b>Item:</b>
-  <%= @swarm_request.item %>
-</p>
+  <p>
+    <b>Item:</b>
+    <%= @swarm_request.item %>
+  </p>
 
-<p>
-  <b>Street address:</b>
-  <%= @swarm_request.address %>
-</p>
+  <p>
+    <b>Street address:</b>
+    <%= @swarm_request.address %>
+  </p>
 
 
-<p>
-  <b>Requested By:</b>
-  <%= @swarm_request.user.username %>
-</p>
+  <p>
+    <b>Requested By:</b>
+    <%= @swarm_request.user.username %>
+  </p>
 
-<p>
-  <b>Delivery instructions:</b>
-  <%= @swarm_request.delivery_instructions %>
-</p>
+  <p>
+    <b>Delivery instructions:</b>
+    <%= @swarm_request.delivery_instructions %>
+  </p>
 
-<h2>Bids</h2>
-<% @swarm_request.bids.each do |bid| %>
-  <p><%= bid.user.email %> bid: $<%= bid.price %> on <%= bid.created_at %>.</p>
+  <h2>Bids</h2>
+  <% @swarm_request.bids.each do |bid| %>
+    <p><%= bid.user.email %> bid: $<%= bid.price %> on <%= bid.created_at %>.</p>
+  <% end %>
+
+
+  <%= link_to 'Edit', edit_swarm_request_path(@swarm_request) %> |
+  <%= link_to 'Back', swarm_requests_path %>
 <% end %>
-
-
-<%= link_to 'Edit', edit_swarm_request_path(@swarm_request) %> |
-<%= link_to 'Back', swarm_requests_path %>

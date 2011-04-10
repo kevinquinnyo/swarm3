@@ -11,7 +11,7 @@ module ApplicationHelper
 		end
 
     def logo
-      image_tag("logo.png", :alt => "Swarm", :border => 0)
+      image_tag("swarmlogowhitetextonly.png", :alt => "Swarm", :border => 0)
     end
 end
 

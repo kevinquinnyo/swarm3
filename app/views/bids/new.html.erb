@@ -1,5 +1,7 @@
-<h1>New bid</h1>
+<% content_for :left_div do %>
+  <h1>New bid</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Back', swarm_request_bids_path(:swarm_request_id => @swarm_request.to_param) %>
+  <%= link_to 'Back', swarm_request_bids_path(:swarm_request_id => @swarm_request.to_param) %>
+<% end %>

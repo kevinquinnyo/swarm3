@@ -18,7 +18,12 @@ a { font-size: 14px; color: #1A1A1A; font-weight: bold; text-decoration: none; }
 a:visited { color: #333333 }
 a:hover { color: #FBFF69; }
 
-
+div.loginfield, div.loginactions {
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
 
 div.field, div.actions {
   margin-bottom: 5px;

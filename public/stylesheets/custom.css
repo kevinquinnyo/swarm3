@@ -1,21 +1,82 @@
+
+.clearboth {
+  clear: both;
+}
+
 .round {
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
 }
 
-.roundheading {
-  height:                40px;
-  margin-top:            10px;
-  margin-bottom:         10px;
-  -moz-border-radius:    5px;
-  -webkit-border-radius: 5px;
+#fullwidth {
+  margin: 0;
+  display: block;
+  height: 50px;
+  background-color:      #333;
+  border: 1px solid black;
   
+}
+
+.logopad {
+  padding: 5px;
 }
 
 .infobubble {
   font-size: 10px;
 }
 
+#navbar {
+	float: right;
+	margin: 0 0 3em 0;
+	padding: 0;
+	list-style: none;
+	background-color: #333;
+  border-left: 1px solid black;
+	 
+
+}
+
+#navbar li {
+	float: right; 
+}
+
+#navbar li a {
+	display: block;
+	padding: 16px 15px;
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	border-right: 1px solid black;   
+}
+
+
+
+
+#nav li a:hover {
+  color:white;
+	background-color: black; 
+}
+
+.signin {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.smallwhite {
+  color: white; 
+  font-weight: bold; 
+  font-size: 12px;
+  padding: 16px;
+}
+
+a.bigwhitelink:link { color: white; font-weight: bold; font-size: 18px }
+a.bigwhitelink:visited { color: white; font-weight: bold; font-size: 18px}
+a.bigwhitelink:hover { color: white; font-weight: bold; font-size: 18px }
+
+a.smallwhitelink:link { color: white; font-weight: bold; font-size: 12px }
+a.smallwhitelink:visited { color: white; font-weight: bold; font-size: 12px}
+a.smallwhitelink:hover { color: white; font-weight: bold; font-size: 12px }
 
 a.learnmore:link { color: white; background-color: #333; font-size: 14px }
 a.learnmore:visited { color: white; background-color: #333; font-size: 14px}
@@ -33,6 +94,14 @@ a.learnmore:hover { color: white; background-color: black; font-size: 14px }
   font-style: italic;
   color: #FF0022;
 }
+
+.bigfont {
+  font-size: 30px;
+  line-height: 90%;
+  letter-spacing: -1px;
+  font-weight: bold;
+  color: #333;
+}
  
 }
 
@@ -43,11 +112,8 @@ a.learnmore:hover { color: white; background-color: black; font-size: 14px }
 
 }
 
-.maparea {
-  border-top-style:      none;
-  border-bottom-style:      none;
-  border-left-style:      solid 1px #333;
-  border-right-style:      solid 1px #333;
+.maptop10 {
+  margin-top: 10px;
   
 
 }
@@ -63,7 +129,7 @@ a.learnmore:hover { color: white; background-color: black; font-size: 14px }
 }
 
 .roundsmallgreytop {
-  margin-top: -10px;
+
   background-color:       #333;
   color: white;
   -moz-border-radius:     5px;
@@ -80,22 +146,32 @@ a.learnmore:hover { color: white; background-color: black; font-size: 14px }
 
 }
 
-.roundsmallblue {
-  background-color:       #99333F;
-  -moz-border-radius:     5px;
-  -webkit-border-radius:  5px;
-  height:                 220px;
+.makerequestbutton {
+  display:                 block;
+  height:                     20px;
+  width:                      80px;
+  margin-top:                 10px;
+  text-align:             center;
+  font-size:              24px;
+  font-weight:            bold;
+  color:                  white;
+  background-color:       #AAD400;
+  padding:                5px; 
+  border-top:                 1px solid #333;
+  border-left:                 1px solid #333;
+  border-right:                 1px solid #333;
 }
 
 
 .mapitself {
-  width:                 310px;
-  height:                310px;
+  margin-top:            10px;
+  width:                 100%;
+  height:                300px;
   margin:                auto;
 }
 
 .blurb {
-  margin:    10px;
+
   font-size: 16px;
 }
 
@@ -106,6 +182,8 @@ a.learnmore:hover { color: white; background-color: black; font-size: 14px }
   margin-left:     10px;
   margin-right:    10px;
 }
+
+
 
 .bigtext {
   font-size:  82px;

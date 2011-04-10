@@ -1,33 +1,20 @@
 <header>
-  <div id="header" class="grid_12">
-    <div id ="logo" class="grid_4 alpha">
+  
+    <div id ="logo" class="grid_6 logopad">
       <%= link_to logo, root_path %>
     </div>
-
-    <div id ="login" class="grid_4 push_4 right">
-      <% if user_signed_in? %>
-        <li>Signed in as <%= current_user.username %>.  Not You?  <%= link_to "Sign Out", destroy_user_session_path %></li>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
+    <div id ="login" class="grid_6 right alpha">
+      <span style = "font-size: 12px; color: white;">
+        <% if user_signed_in? %>
+          Signed in as <%= current_user.username %>.  Not You?
+            <%= link_to "Sign Out", destroy_user_session_path, :class => "smallwhitelink" %>
+        <% else %>              
+            <%= link_to "Log In", new_user_session_path,       :class => "smallwhitelink" %> | 
+            <%= link_to "Sign Up", new_user_registration_path, :class => "smallwhitelink" %>
+        <% end %>
+      </span>
     </div>
-    <div id="heading" class="grid_12 roundheading center">
-      
-      <div class="alpha grid_1 push_9 right">
-        
-         <%= link_to "Deliver", deliver_path %>
-       
-      </div>
-      <div class="alpha grid_1 push_9 right">
-        
-         <%= link_to "Get", get_path %>
-       
-      </div>
-      <div class="grid_1 push_9 right">
-        
-         <%= link_to "About", about_path %>
-       
-      </div>
+  
 
-    </div> 
+
 </header>

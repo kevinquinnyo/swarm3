@@ -1,5 +1,7 @@
-<p><%= @user.username %><p>
+<% content_for :left_div do %>
+  <p><%= @user.username %><p>
 
-<p><% @user.swarm_requests.each do |@swarm_request| %></p>
-<p> <%= @swarm_request.item %></p>
-<p>   <% end %>
+  <p><% @user.swarm_requests.each do |@swarm_request| %></p>
+  <p> <%= @swarm_request.item %></p>
+  <% end %>
+<% end %>

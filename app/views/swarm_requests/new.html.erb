@@ -1,5 +1,11 @@
-<h1>Make a Request</h1>
+<% content_for :left_div do %>
+  <h1>Make a Request</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Back', swarm_requests_path %>
+  <%= link_to 'Back', swarm_requests_path %>
+<% end %>
+
+<% content_for :right_div do %>
+<p>  </p>
+<% end %>

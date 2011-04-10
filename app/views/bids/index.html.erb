@@ -1,30 +1,32 @@
-<h1>Listing bids</h1>
+<% content_for :left_div do %>
+  <h1>Listing bids</h1>
 
-<table>
-  <tr>
-    <th>Price</th>
-    <th>User</th>
-    <th>Swarm request</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table>
+    <tr>
+      <th>Price</th>
+      <th>User</th>
+      <th>Swarm request</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @bids.each do |bid| %>
-  <tr>
-    <td><%= bid.price %></td>
-    <td><%= bid.user.username %></td>
-    <td><%= bid.swarm_request.item %></td>
-    <%# TODO: delete this comment.  This is a nested route.  So it needs and :id and a :swarm_request_id.  So we have to pass both: %>
-    <td><%= link_to 'Show', swarm_request_bid_path(:id => bid.to_param, :swarm_request_id => @swarm_request.to_param) %></td>
-    
-    <td><%= button_to 'Accept Bid', accept_swarm_request_bid_path(:id => bid.to_param, :swarm_request_id => @swarm_request.to_param), :method => :put %>
-    </td>
+  <% @bids.each do |bid| %>
+    <tr>
+      <td><%= bid.price %></td>
+      <td><%= bid.user.username %></td>
+      <td><%= bid.swarm_request.item %></td>
+      <%# TODO: delete this comment.  This is a nested route.  So it needs and :id and a :swarm_request_id.  So we have to pass both: %>
+      <td><%= link_to 'Show', swarm_request_bid_path(:id => bid.to_param, :swarm_request_id => @swarm_request.to_param) %></td>
+      
+      <td><%= button_to 'Accept Bid', accept_swarm_request_bid_path(:id => bid.to_param, :swarm_request_id => @swarm_request.to_param), :method => :put %>
+      </td>
 
-  </tr>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Bid', new_swarm_request_bid_path(:swarm_request_id => @swarm_request.to_param) %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Bid', new_swarm_request_bid_path(:swarm_request_id => @swarm_request.to_param) %>

@@ -15,11 +15,16 @@
   <% else %>
     <body>
   <% end %>
+      <%= render 'layouts/fullwidth' %>
       <div id= "container" class= "container_12">
-        <%= render 'layouts/header' %>
-        
+      
+          <div id="content" class="grid_6 roundcontent">
+            <%= yield :left_div %>
+          </div>
+          <div class= "grid_6 maptop10">
+            <%= yield :right_div %>
+          </div>
           <%= yield %>
-        
       </div>
     </body>
 </html>
