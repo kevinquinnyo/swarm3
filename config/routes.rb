@@ -2,7 +2,9 @@ Swarm3::Application.routes.draw do
   
   devise_for :users
 
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show] do
+    post 'rate', :on => :member
+  end
   
   resources :swarm_requests do
     put 'accept_requester_price_now', :on => :member

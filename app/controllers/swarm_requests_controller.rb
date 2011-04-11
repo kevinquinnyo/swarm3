@@ -88,11 +88,13 @@ class SwarmRequestsController < ApplicationController
   def accept_requester_price_now
     @swarm_request = SwarmRequest.open.find(params[:id])
     @swarm_request.update_attributes(:auction_closed => true)
+    @user = current_user
+    @user.increment!(:delivery_count)
     
   
     UserMailer.accept_price_now(@swarm_request, current_user).deliver
     respond_to do |format|
-        format.html { redirect_to(@swarm_request, :notice => 'Success. You may now deliver the items.  An email was sent with a summary of the details.') }
+        format.html { redirect_to(root_path, :notice => 'Success. You may now deliver the items.  An email was sent with a summary of the details.') }
         format.xml  { head :ok }
     end
   end

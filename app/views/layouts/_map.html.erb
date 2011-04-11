@@ -72,7 +72,7 @@
             var contentString = '<div class = "infobubble">'+
                                 'Offer: $<%= swarm_request.suggested_price %></br>'+
                                 'Item Requested: <%= swarm_request.item %></br>'+
-                                'User: <%= swarm_request.user.username %><br>'+
+                                'User: <%= link_to swarm_request.user.username, user_path(swarm_request.user.id) %><br>'+
                                 'Address: <%= swarm_request.address %><br>'+
                                 '<%= button_to "Deliver this now!", accept_requester_price_now_swarm_request_path(:id => swarm_request.to_param, :user_id => @user.to_param), :confirm => "You are agreeing to deliver this item for the price listed.  An email will be sent with the address and relevant information. ", :method => :put %>'+
                                 '<%= link_to " Make Counter Offer", new_swarm_request_bid_path(:swarm_request_id => swarm_request.id) %>'+

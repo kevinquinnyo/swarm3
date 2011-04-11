@@ -1,7 +1,37 @@
-<% content_for :left_div do %>
-  <p><%= @user.username %><p>
-
-  <p><% @user.swarm_requests.each do |@swarm_request| %></p>
-  <p> <%= @swarm_request.item %></p>
-  <% end %>
+<% content_for :top_div do %>
+    <h1><%= @user.username %></h1>
 <% end %>
+
+<% content_for :left_div do %>
+  <div class="memberinfo">
+    <div class="grid_2 blurbsmall">
+      <p><b>Member Since: </b></p>
+      <p><b>Requests: </b></br></p>
+      <p><b>Deliveries: </b></br></p>
+      </p>
+    </div>
+    <div class="grid_3 right blurbsmall">
+      <p>
+        <%= distance_of_time_in_words(@user.created_at, Time.now) %> ago
+      </p>
+      <p>
+        <%= @user.swarm_requests.count %>
+      </p>
+      <p>
+        <%= @user.delivery_count %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<%content_for :right_div do %>
+  <div class="ratinginfo">
+    <div class="grid_4 smallwhite">Rate <%= @user.username %>:
+      <%= ratings_for @user,   :dimension => :reputation %>
+      <p>Avg rating for <%= @user.username %>:<%= ratings_for @user, :force_static, :dimension => :reputation, :small => true %></p>
+    </div>
+  </div>
+<% end %>
+
+
+
