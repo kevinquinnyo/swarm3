@@ -11,7 +11,7 @@ gem 'devise', '1.1.8'
 gem 'geokit-rails3'
 
 
-gem 'ajaxful_rating', '3.0.0.beta2', :group => :development
+gem 'ajaxful_rating', '3.0.0.beta2'
 # Use unicorn as the web server
 # gem 'unicorn'
 
