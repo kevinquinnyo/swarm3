@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20110410230505) do
     t.datetime "updated_at"
     t.string   "username"
     t.boolean  "is_admin"
-    t.integer  "delivery_count"
+    t.integer  "delivery_count",                                                         :default => 0
     t.decimal  "rating_average",                           :precision => 6, :scale => 2, :default => 0.0
     t.decimal  "rating_average_reputation",                :precision => 6, :scale => 2, :default => 0.0
   end
