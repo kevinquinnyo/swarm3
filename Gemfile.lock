@@ -86,4 +86,5 @@ DEPENDENCIES
   devise (= 1.1.8)
   geokit-rails3
   rails (= 3.0.4)
+  rake (= 0.8.7)
   sqlite3-ruby
