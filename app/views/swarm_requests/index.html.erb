@@ -1,5 +1,20 @@
 <% content_for :left_div do %>
-  <p> insert something here, maybe show the swarm requests as a nice list/feed with the offer prices? </p>
+  <!-- <p> insert something here, maybe show the swarm requests as a nice list/feed with the offer prices? </p> !-->
+<table>
+ <tr>
+  <th> Request </th>
+  <th> User </th>
+  <th> Location </th>
+ </tr>
+
+<% @swarm_requests.each do |req| %>
+ <tr>
+  <td> <%= link_to req.item, req %> </td>
+  <td> <%= req.user.username %> </td>
+  <td> <%= req.address %> </td>
+ </tr>
+<% end %>
+</table>
 <% end %>
 
 <% content_for :right_div do %>
