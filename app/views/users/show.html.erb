@@ -28,7 +28,7 @@
   <div class="ratinginfo">
     <div class="grid_4 smallwhite">Rate <%= @user.username %>:
       <%= ratings_for @user,   :dimension => :reputation %>
-      <p>Avg rating for <%= @user.username %>:<%= ratings_for @user, :force_static, :dimension => :reputation, :small => true %></p>
+      <p>Avg rating for <%= @user.username %>:<%= ratings_for @user, :dimension => :reputation, :small => true %></p>
     </div>
   </div>
 <% end %>
