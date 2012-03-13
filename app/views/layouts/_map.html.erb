@@ -30,9 +30,9 @@
   ];
       //make this default to ip based location in production
       <% if Rails.env.production? %>
-        var latlng = new google.maps.LatLng(<%= @current_location.lat %>, <%= @current_location.lng %>);
+        var latlng = new @current_location
       <% else %>
-        var latlng = new google.maps.LatLng(33.7488, -84.3880);
+        var latlng = new @current_location
       <% end %>
         var myOptions = {
           zoom: 12,
