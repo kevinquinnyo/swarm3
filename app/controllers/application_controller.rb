@@ -13,9 +13,7 @@ class ApplicationController < ActionController::Base
     @current_location = "#{session[:geo_location].lat},#{session[:geo_location].lng}"  # @current_location is a GeoLoc instance. 
     else
     @current_location = "33.7488, -84.3880"
-  end
-
-    
+    end
   end
   def store_location
     session[:return_to] = request.request_uri
