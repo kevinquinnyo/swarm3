@@ -29,7 +29,7 @@
     }
   ];
       //make this default to ip based location in production
-        var latlng = google.maps.LatLng(<%= @current_location %>);
+        var latlng = new google.maps.LatLng(<%= @current_location %>);
         var myOptions = {
           zoom: 12,
           center: latlng,
