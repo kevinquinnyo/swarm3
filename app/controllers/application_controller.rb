@@ -8,15 +8,12 @@ class ApplicationController < ActionController::Base
 
   def geokit 
     store_ip_location
-#    @current_location = session[:geo_location]  # @current_location is a GeoLoc instance. 
-##### This is a hack to circumvent an outdated implementation of geokit
+##### This is a hack to circumvent an outdated implementation of geokit --- getting uglier...
     if session[:geo_location]; then
-    @current_location = "#{session[:geo_location].lat}, #{session[:geo_location].lng}"  # @current_location is a GeoLoc instance. 
+    @current_location = "#{session[:geo_location].lat},#{session[:geo_location].lng}"  # @current_location is a GeoLoc instance. 
     else
-    @current_location =  "33.7488, -84.3880"
-  end
-
-    
+    @current_location = "33.7488, -84.3880"
+    end
   end
   def store_location
     session[:return_to] = request.request_uri
