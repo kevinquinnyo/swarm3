@@ -66,10 +66,10 @@
             
             var contentString = '<div class = "infobubble">'+
 				'<table>'+
-                                '<tr><td>Offer:</td><td> $<%= swarm_request.suggested_price %></td></tr>'+
-                                "<tr><td>Item Requested:</td><td> <%= swarm_request.item %></td></tr>"+
-                                '<tr><td>User:</td><td> <%= link_to swarm_request.user.username, user_path(swarm_request.user.id) %></td></tr>'+
-                                '<tr><td>Address:</td><td> <%= swarm_request.address %></td></tr>'+
+                                '<tr><td><b><%= link_to swarm_request.user.username, user_path(swarm_request.user.id) %></b></td></tr>'+
+				'<tr><td><b>User suggests:</b></td><td> $<%= swarm_request.suggested_price %></td></tr>'+
+                                "<tr><td><b>Item Requested:</b></td><td> <%= swarm_request.item %></td></tr>"+
+                                '<tr><td><b>Address:</b></td><td> <%= swarm_request.address %></td></tr>'+
 				'</table>'+
                                 '<%= button_to "Deliver this now!", accept_requester_price_now_swarm_request_path(:id => swarm_request.to_param, :user_id => @user.to_param), :confirm => "You are agreeing to deliver this item for the price listed.  An email will be sent with the address and relevant information. ", :method => :put %>'+
                                 '<%= link_to "Make Counter Offer", new_swarm_request_bid_path(:swarm_request_id => swarm_request.id) %>'+
