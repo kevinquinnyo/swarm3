@@ -27,8 +27,7 @@
 <%content_for :right_div do %>
   <div class="ratinginfo">
     <div class="grid_4 smallwhite">Rate <%= @user.username %>:
-      <%= ratings_for @user,   :dimension => :reputation %>
-      <p>Avg rating for <%= @user.username %>:<%= ratings_for @user, :dimension => :reputation, :small => true %></p>
+      <%= ratings_for @user, :dimension => :reputation  %>
     </div>
   </div>
 <% end %>
