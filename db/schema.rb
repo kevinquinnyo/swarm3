@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110410230505) do
+ActiveRecord::Schema.define(:version => 20120324034230) do
 
   create_table "bids", :force => true do |t|
     t.float    "price"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20110410230505) do
     t.string   "address"
     t.boolean  "auction_closed",        :default => false
     t.float    "suggested_price"
+    t.datetime "timestamp"
   end
 
   create_table "users", :force => true do |t|
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20110410230505) do
     t.integer  "delivery_count",                                                         :default => 0
     t.decimal  "rating_average",                           :precision => 6, :scale => 2, :default => 0.0
     t.decimal  "rating_average_reputation",                :precision => 6, :scale => 2, :default => 0.0
+    t.string   "timestamp"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
