@@ -20,7 +20,7 @@ Swarm3::Application.routes.draw do
   match '/deliver' => 'swarm_requests#index'
   match '/get'     => 'swarm_requests#new'
   match '/review'  => 'bids#show'
-
+  match '/clustertest' => 'pages#clustertest'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
