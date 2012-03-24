@@ -5,6 +5,7 @@ class SwarmRequest < ActiveRecord::Base
   belongs_to :user
   has_many :bids
   scope :open, where(:auction_closed => false)
+#  scope :new, lambda { |cr_at| where("created_at < ?", created_at) }
 
   validates_numericality_of :suggested_price, :on => :create
   
