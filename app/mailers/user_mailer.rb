@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
     @bid = bid
     
     
-    attachments.inline['logo.png'] = File.read('public/images/logo.png')
+#    attachments.inline['logo.png'] = File.read('public/images/logo.png')
     
     mail(:to => bid.swarm_request.user.email, :subject => "Swarm Delivery Bid")
   end
@@ -18,7 +18,7 @@ class UserMailer < ActionMailer::Base
     @bidder = bid.user
     @bid = bid
     
-    attachments.inline['logo.png'] = File.read('public/images/logo.png')
+#    attachments.inline['logo.png'] = File.read('public/images/logo.png')
     
     mail(:to => bid.user.email, :subject => "Swarm Delivery Bid Accepted")
   end
@@ -27,7 +27,7 @@ class UserMailer < ActionMailer::Base
     @swarm_requester = swarm_request
     @user = user
     
-    attachments.inline['logo.png'] = File.read('public/images/logo.png')
+#    attachments.inline['logo.png'] = File.read('public/images/logo.png')
     
     mail(:to => user.email, :subject => "Swarm Delivery Bid Accepted")
   end

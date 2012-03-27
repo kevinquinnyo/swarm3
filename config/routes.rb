@@ -1,18 +1,19 @@
 Swarm3::Application.routes.draw do
   
+
   devise_for :users
 
   resources :users, :only => [:index, :show] do
-    post 'rate', :on => :member
   end
   
   resources :swarm_requests do
     put 'accept_requester_price_now', :on => :member
     resources :bids do
       put 'accept', :on => :member
+      resources :ratings
     end
-
   end
+  
   
   root :to => "pages#home"
   

@@ -27,8 +27,7 @@
   <% @swarm_request.bids.each do |bid| %>
     <p><%= bid.user.email %> bid: $<%= bid.price %> on <%= bid.created_at %>.</p>
   <% end %>
-
-
+  
   <%= link_to 'Edit', edit_swarm_request_path(@swarm_request) %> |
   <%= link_to 'Back', swarm_requests_path %>
 <% end %>

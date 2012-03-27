@@ -4,13 +4,13 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <%= image_tag attachments['logo.png'].url %>
     <h1><%= @user.username %>,</h1>
     <p>You have agreed to make a delivery!<p>
     <p><%= @swarm_requester.user.username %> is expecting to see you soon!  Here is the address and information on the delivery request:</br></p>
     <p>Address: <%= @swarm_requester.address %></br></p>
     <p>Requested Item: <%= @swarm_requester.item %></br></p>
     <p>Delivery Payment: $<%= @swarm_requester.suggested_price %>0</br></p>
+    <p>Please don't forget to rate how satisfied you were with this delivery! <%= @rand_string %> </p>
     
     <p>Kind Regards,</br></br></br></p>
     <p>Team Swarm</p>

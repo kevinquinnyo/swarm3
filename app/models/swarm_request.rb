@@ -12,6 +12,5 @@ class SwarmRequest < ActiveRecord::Base
   def geocoded?
     self.lat.present? && self.lng.present?
   end
-  
 
 end

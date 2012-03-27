@@ -98,9 +98,9 @@ class SwarmRequestsController < ApplicationController
         format.xml  { head :ok }
     end
   end
-  
-  
-  
-    
 
+  def rate
+    @swarm_request = SwarmRequest.find(params[:id])    
+    @swarm_request.update_attributes(params[:rating])
+  end
 end
