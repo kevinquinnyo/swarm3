@@ -1,89 +1,63 @@
 
 <% @body_onload = "initialize();" %>
-
- <script src="http://www.google.com/jsapi"></script>
-
-    <script src="../src/data.json" type="text/javascript"></script>
-   <!-- <script type="text/javascript" src="/javascripts/markerclusterer.js";></script> -->
-    <script type="text/javascript" src="/javascripts/oms.min.js";></script>
-
-
+<script src="http://www.google.com/jsapi"></script>
+<script src="../src/data.json" type="text/javascript"></script>
+<!-- <script type="text/javascript" src="/javascripts/markerclusterer.js";></script> -->
+<script type="text/javascript" src="/javascripts/oms.min.js";></script>
 <script type="text/javascript">
-  function initialize() {
-   
+function initialize() {
+	//custom styling variables
+	var stylez = [
+	{
+		featureType: "road.local",
+		elementType: "geometry",
+		stylers: [
+			{ hue: "#FFFFFF" },
+			{ saturation:100 },
+        		{ lightness: 100}
+      		]
+    	},
+    	{
+		featureType: "landscape",
+		elementType: "geometry",
+		stylers: [
+        
+			{lightness: -80 },
+			{saturation:-100},
+		]
+	}
+	];
 
-    //custom styling variables
- var stylez = [
-    {
-      featureType: "road.local",
-      elementType: "geometry",
-      stylers: [
-        { hue: "#FFFFFF" },
-        { saturation:100 },
-        { lightness: 100}
-      ]
-    },
-    {
-      featureType: "landscape",
-      elementType: "geometry",
-      stylers: [
-        
-        {lightness: -80 },
-        {saturation:-100},
-        
-      ]
-    }
-  ];
-        var latlng = new google.maps.LatLng(<%= @current_location %>);
-        var myOptions = {
-          zoom: 12,
-          center: latlng,
-          mapTypeControlOptions: {
-          mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'hiphop']
-          }
+	var latlng = new google.maps.LatLng(<%= @current_location %>);
+	var myOptions = {
+		zoom: 12,
+		center: latlng,
+		mapTypeControlOptions: {
+			mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'hiphop']
+		}
         };
-        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-		var oms = new OverlappingMarkerSpiderfier(map);
 
-        var styledMapOptions = {
-          name: "Swarm"
-        }
+	var styledMapOptions = {
+		name: "Swarm"
+	};
 
-        var jayzMapType = new google.maps.StyledMapType(
-          stylez, styledMapOptions);
+	//overlappping marker spiderfier
+	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	var oms = new OverlappingMarkerSpiderfier(map);
 
-      map.mapTypes.set('hiphop', jayzMapType);
-      map.setMapTypeId('hiphop');
+	var jayzMapType = new google.maps.StyledMapType(stylez, styledMapOptions);
+	map.mapTypes.set('hiphop', jayzMapType);
+	map.setMapTypeId('hiphop');
+	
     
-    //create empty infowindow outside of loop
-    infowindow = new google.maps.InfoWindow();
-    markers = [];
-    //put location markers on map
-    <% @swarm_requests.each do |swarm_request| %>
-      // don't show the marker if we don't have a lat lng or if a bid has already been accepted
-      <% if swarm_request.geocoded? %>
- 	function attachIWindow(content, marker){
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString,
-        });
-		oms.addListener('click', function(marker) {
-		  infowindow.setContent(contentString);
-		  infowindow.open(map, marker);
-		});
-		
-    }
-
-        
-          
-            var request_latlng = new google.maps.LatLng(<%= swarm_request.lat %>, <%= swarm_request.lng %>);       
-
-            var marker = new google.maps.Marker({ 
-              position: request_latlng, 
-              map: map, 
-              title: "User: <%=h swarm_request.user.username %> | Item Requested: <%=h swarm_request.item %> | Offer: $<%=h swarm_request.suggested_price %>"
-            });
-            
-            var contentString = '<div class = "infobubble">'+
+	//create empty infowindow outside of loop
+//	infowindow = new google.maps.InfoWindow();
+	//markers = [];
+	//put location markers on map
+	<% @swarm_requests.each do |swarm_request| %>
+		<% if swarm_request.geocoded? %>
+// //////////////////////horrible
+			var contentString = '<div class = "infobubble">'+
 				'<table>'+
                 '<tr><td><b><%= link_to swarm_request.user.username, user_path(swarm_request.user.id) %></b></td></tr>'+
 				'<tr><td><b>User suggests:</b></td><td> $<%=h swarm_request.suggested_price %></td></tr>'+
@@ -93,17 +67,26 @@
                 '<%= button_to "Deliver this now!", accept_requester_price_now_swarm_request_path(:id => swarm_request.to_param, :user_id => @user.to_param), :confirm => "You are agreeing to deliver this item for the price listed.  An email will be sent with the address and relevant information. ", :method => :put %>'+
                 '<%= link_to "Make Counter Offer", new_swarm_request_bid_path(:swarm_request_id => swarm_request.id) %>'+
                                 '</div>';
-           
-			 attachIWindow(contentString, marker);
-			 oms.addMarker(marker);
-      
-     
-     
-        
-        <% end %>
-    <% end %>  
-     
-  }
+// //////////////////////end horrible
+
+			var request_latlng = new google.maps.LatLng(<%= swarm_request.lat %>, <%= swarm_request.lng %>);       
+			var marker = new google.maps.Marker({ 
+				position: request_latlng, 
+				map: map, 
+				title: "User: <%=h swarm_request.user.username %> | Item Requested: <%=h swarm_request.item %> | Offer: $<%=h swarm_request.suggested_price %>",
+				content: contentString
+			});
+            
+			
+			var infowindow = new google.maps.InfoWindow();
+			oms.addListener('click', function(marker) {
+				infowindow.setContent(marker.content)
+				infowindow.open(map, marker);
+			});
+			oms.addMarker(marker);
+		<% end %>
+	<% end %>  
+	}
  
 
 </script>
