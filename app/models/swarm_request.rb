@@ -4,6 +4,8 @@ class SwarmRequest < ActiveRecord::Base
   
   belongs_to :user
   has_many :bids
+  has_one :request_rating, :dependent => :destroy
+#  accepts_nested_attributes_for :request_rating
   scope :open, where(:auction_closed => false)
 #  scope :new, lambda { |cr_at| where("created_at < ?", created_at) }
 

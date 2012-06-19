@@ -7,6 +7,7 @@
     <div class="grid_2 blurbsmall">
       <p><b>Member Since: </b></p>
       <p><b>Requests: </b></br></p>
+      <p><b>Request Rate: </b></br></p>
       <p><b>Deliveries: </b></br></p>
       </p>
     </div>
@@ -18,6 +19,9 @@
         <%= @user.swarm_requests.count %>
       </p>
       <p>
+        <%= @user.request_rate  %> %
+      </p>
+      <p>
         <%= @user.delivery_count %>
       </p>
     </div>
@@ -27,7 +31,7 @@
 <%content_for :right_div do %>
   <div class="ratinginfo">
     <div class="grid_4 smallwhite">Rate <%= @user.username %>:
-      <%= ratings_for @user, :dimension => :reputation  %>
+	<p>ratings here</p>
     </div>
   </div>
 <% end %>

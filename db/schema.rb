@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324034230) do
+ActiveRecord::Schema.define(:version => 20120618204517) do
 
   create_table "bids", :force => true do |t|
     t.float    "price"
@@ -19,20 +19,20 @@ ActiveRecord::Schema.define(:version => 20120324034230) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "accepted"
+    t.float    "rating"
   end
 
-  create_table "rates", :force => true do |t|
-    t.integer  "rater_id"
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.integer  "stars",         :null => false
-    t.string   "dimension"
+  create_table "delivery_ratings", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
-  add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
+  create_table "request_ratings", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "swarm_request_id"
+    t.float    "value"
+  end
 
   create_table "swarm_requests", :force => true do |t|
     t.string   "item"
@@ -46,16 +46,18 @@ ActiveRecord::Schema.define(:version => 20120324034230) do
     t.boolean  "auction_closed",        :default => false
     t.float    "suggested_price"
     t.datetime "timestamp"
+    t.float    "rating"
+    t.integer  "bid_winner"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                                                  :default => "",  :null => false
-    t.string   "encrypted_password",        :limit => 128,                               :default => "",  :null => false
-    t.string   "password_salt",                                                          :default => "",  :null => false
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                                          :default => 0
+    t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -64,10 +66,10 @@ ActiveRecord::Schema.define(:version => 20120324034230) do
     t.datetime "updated_at"
     t.string   "username"
     t.boolean  "is_admin"
-    t.integer  "delivery_count",                                                         :default => 0
-    t.decimal  "rating_average",                           :precision => 6, :scale => 2, :default => 0.0
-    t.decimal  "rating_average_reputation",                :precision => 6, :scale => 2, :default => 0.0
+    t.integer  "delivery_count",                      :default => 0
     t.string   "timestamp"
+    t.float    "request_rate"
+    t.float    "delivery_rate"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

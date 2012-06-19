@@ -1,6 +1,11 @@
 <% content_for :left_div do %>
   <p id="notice"><%= notice %></p>
 
+<h2>Rating For this Request</h2>
+  <p>
+    <b>Rating:</b>
+    <%= @request_rating.value %>
+  </p>
 
   <p>
     <b>Item:</b>
@@ -30,7 +35,4 @@
   <% end %>
 
 
-
-  <%= link_to 'Edit', edit_swarm_request_path(@swarm_request) %> |
-  <%= link_to 'Back', swarm_requests_path %>
 <% end %>

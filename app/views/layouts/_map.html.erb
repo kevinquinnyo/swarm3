@@ -61,6 +61,7 @@ function initialize() {
 				'<table>'+
                 '<tr><td><b><%= link_to swarm_request.user.username, user_path(swarm_request.user.id) %></b></td></tr>'+
 				'<tr><td><b>User suggests:</b></td><td> $<%=h swarm_request.suggested_price %></td></tr>'+
+				'<tr><td><b>User Request Rating:</b></td><td> <%=h swarm_request.rating %></td></tr>'+
                 '<tr><td><b>Item Requested:</b></td><td> <%=h swarm_request.item %></td></tr>'+
                 '<tr><td><b>Address:</b></td><td> <a target="_blank" href="http://google.com/maps?saddr=<%=@current_location%>&daddr=<%=swarm_request.lat %>,<%= swarm_request.lng %>"> <%=h swarm_request.address %></td></a></tr>'+
 				'</table>'+

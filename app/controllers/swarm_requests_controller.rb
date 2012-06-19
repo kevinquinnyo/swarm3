@@ -1,7 +1,8 @@
 class SwarmRequestsController < ApplicationController
   
   before_filter :authenticate_user!
-  before_filter :require_admin!, :except => [:index, :show, :new, :create, :accept_requester_price_now]
+  before_filter :authourize_as_bidder, :only => [:rate_request]
+  # before_filter :require_admin!, :except => [:index, :show, :new, :create, :accept_requester_price_now]
   # GET /swarm_requests
   # GET /swarm_requests.xml
   def index
@@ -90,6 +91,7 @@ class SwarmRequestsController < ApplicationController
     @swarm_request.update_attributes(:auction_closed => true)
     @user = current_user
     @user.increment!(:delivery_count)
+    @swarm_request.update_attributes(:bid_winner => @user.id)
     
   
     UserMailer.accept_price_now(@swarm_request, current_user).deliver
@@ -99,8 +101,4 @@ class SwarmRequestsController < ApplicationController
     end
   end
   
-  
-  
-    
-
 end

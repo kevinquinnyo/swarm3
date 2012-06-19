@@ -1,0 +1,22 @@
+<%= form_for(@swarm_request) do |f| %>
+  <% if @swarm_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request_rating.errors.count, "error") %> prohibited this swarm_request from being saved:</h2>
+
+      <ul>
+      <% @request_rating.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rating, "How would you rate this request? (1-100) "%><br />
+    <%= f.text_field :rating %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Rate!" %>
+  </div>
+<% end %>
+
